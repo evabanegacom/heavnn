@@ -42,8 +42,15 @@ export default function Home() {
     setSearchTerm(event.target.value.toLowerCase());
   }
 
-  console.log({searchTerm})
-  console.log({searchTerm})
+  const deletePost = async (id) => {
+    const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
+    const response = await fetch(url, {
+      method: 'DELETE',
+    });
+    const data = await response.json();
+    console.log({data})
+  }
+
 
   const filteredPosts = posts.filter((post) => {
     const user = users.find((user) => user.id === post.userId);
@@ -71,6 +78,7 @@ export default function Home() {
               return (
                 <List.Item>
                   <List.Item.Meta title={post.title} description={post.body} />
+                  <button onClick={() => deletePost(post.id)}>delete</button>
                   <div>{user.name} ({user.username})</div>
                 </List.Item>
               );
