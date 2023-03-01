@@ -1,0 +1,1 @@
+This is a nextjs app for fetching 

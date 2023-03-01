@@ -79,7 +79,7 @@ export default function Home() {
                 <List.Item>
                   <List.Item.Meta title={post.title} description={post.body} />
                   <button onClick={() => deletePost(post.id)}>delete</button>
-                  <div>{user.name} ({user.username})</div>
+                  <div>{user.name} ({user.username}) { user.email}</div>
                 </List.Item>
               );
             }}
